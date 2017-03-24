@@ -18,8 +18,8 @@
  图片数组
  */
 @property (nonatomic, strong) NSArray *imageArray;
-@property (nonatomic, assign) id <ImageCarouselViewDataSource> dataSource;
-@property (nonatomic, assign) id <ImageCarouselViewDelegate>   delegate;
+@property (nonatomic, weak) id <ImageCarouselViewDataSource> dataSource;
+@property (nonatomic, weak) id <ImageCarouselViewDelegate>   delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame withDataSource:(id<ImageCarouselViewDataSource>)dataSource withDelegate:(id<ImageCarouselViewDelegate>)delegate;
 
@@ -27,6 +27,11 @@
  *  刷新视图
  */
 - (void)reloadData;
+
+/**
+ *  在视图控制器viewWillDisappear须终止轮播
+ */
+- (void)stopScroll;
 
 @end
 
